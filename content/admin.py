@@ -2,14 +2,14 @@ from django.contrib import admin
 from content.models.models import *
 
 
-class PeriodAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Period._meta.fields]
-
-    class Meta:
-        model = Period
-
-
-admin.site.register(Period, PeriodAdmin)
+# class PeriodAdmin(admin.ModelAdmin):
+#     list_display = [field.name for field in Period._meta.fields]
+#
+#     class Meta:
+#         model = Period
+#
+#
+# admin.site.register(Period, PeriodAdmin)
 
 
 class PeriodAdmin(admin.TabularInline):
@@ -82,14 +82,14 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 
-class RoomImageAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in RoomImage._meta.fields]
-
-    class Meta:
-        model = RoomImage
-
-
-admin.site.register(RoomImage, RoomImageAdmin)
+# class RoomImageAdmin(admin.ModelAdmin):
+#     list_display = [field.name for field in RoomImage._meta.fields]
+#
+#     class Meta:
+#         model = RoomImage
+#
+#
+# admin.site.register(RoomImage, RoomImageAdmin)
 
 
 class RoomImageAdmin(admin.TabularInline):
@@ -119,14 +119,14 @@ class RoomAdmin(admin.ModelAdmin):
 admin.site.register(Room, RoomAdmin)
 
 
-class EnvironmentImageAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in EnvironmentImage._meta.fields]
-
-    class Meta:
-        model = EnvironmentImage
-
-
-admin.site.register(EnvironmentImage, EnvironmentImageAdmin)
+# class EnvironmentImageAdmin(admin.ModelAdmin):
+#     list_display = [field.name for field in EnvironmentImage._meta.fields]
+#
+#     class Meta:
+#         model = EnvironmentImage
+#
+#
+# admin.site.register(EnvironmentImage, EnvironmentImageAdmin)
 
 
 class EnvironmentImageAdmin(admin.TabularInline):
