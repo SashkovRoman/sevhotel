@@ -6,8 +6,8 @@ __pycache__
 #db.sqlite3
 
 # Media
-.media/content/
-.media/homepage/
+/static/media/content/
+/static/media/homepage/
 
 # Backup files #
 *.bak
@@ -113,4 +113,5 @@ Control.ca-list
 Control.ca-bundle
 Control.system-ca-bundle
 GitHub.sublime-settings
+
 
