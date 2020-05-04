@@ -1,0 +1,26 @@
+{% load poll_extras %}
+
+<section>
+
+    {% with title=sec_context.description_title content=sec_context.description_content %}
+        {% include "common/site_block_description.html" with id=sec_context.description_id %}
+    {% endwith %}
+
+    <div class="content-section-slim" id={{ sec_context.content_id }}>
+        <div class="container text-center">
+
+                {% with parent=None childs=mdl_context.environments childs_images=mdl_context.environments_images %}
+                    {% with  carousel_id="carousel_environments" %}
+                        <div class="carousel slide" data-ride="carousel" id="{{ carousel_id }}">
+                            <div class="carousel-inner">
+                                {% include 'home/items/content_item_carousel_item.html' with url_string='environment' %}
+                            </div>
+                            <hr/>
+                        </div>
+                    {% endwith %}
+                {% endwith %}
+
+        </div>
+    </div>
+
+</section>

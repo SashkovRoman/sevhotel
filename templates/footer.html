@@ -1,0 +1,74 @@
+{% load static %}
+<!-- Footer -->
+{% if site_footer %}
+    <footer class="footer pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-4 p-3">
+                    {% if site_footer.social_links_is_active %}
+                        {% if site_footer.social_links_title %}
+                            <h5>{{ site_footer.social_links_title }}</h5>
+                        {% endif %}
+                        {% for link in site_footer.social_links.all %}
+                            {% if link.link %}
+                                <a href="{{ link.link }}" class="text-white social-link mx-1" target="_blank">
+                                    <i class="{{ link.icon_name }}"></i>
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="col-sm-4 p-3">
+                    {% if site_footer.links_is_active %}
+                        {% if site_footer.links_title %}
+                            <h5 class="">{{ site_footer.links_title }}</h5>
+                        {% endif %}
+
+                        {% for link in site_footer.links.all %}
+                            {% if link.link %}
+                                <p class="my-1">
+                                    <a href="{{ link.link }}" class="text-white mx-1"
+                                       target="_blank">{{ link.title }}</a>
+                                </p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="col-sm-4 p-3">
+                    {% if site_footer.locations_is_active %}
+                        {% if site_footer.locations_title %}
+                            <h5 class="">{{ site_footer.locations_title }}</h5>
+                        {% endif %}
+
+                        {% for location in site_footer.locations.all %}
+                            {% if location.is_active %}
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <i class="{{ location.icon_name }}"></i>
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <p>{{ location.content }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col copyright">
+                    <p class="text-center">
+                        {{ site_footer.copyright_string }} 2019 - {% now "Y" %}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+{% endif %}

@@ -1,0 +1,18 @@
+<section>
+
+    {% with title=sec_context.description_title content=sec_context.description_content id=sec_context.description_id %}
+        {% include "common/site_block_description.html" %}
+    {% endwith %}
+
+    {% with css='content-section-slim' title=sec_context.content_title content=sec_context.content_content id=sec_context.content_id %}
+        {% include "common/site_block_content.html" %}
+    {% endwith %}
+
+</section>
+
+
+
+
+
+
+

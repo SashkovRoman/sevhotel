@@ -1,0 +1,36 @@
+{% load static %}
+<section>
+
+    {% with title=sec_context.description_title content=sec_context.description_content id=sec_context.description_id %}
+        {% include "common/site_block_description.html" %}
+    {% endwith %}
+
+
+    <div class="content-section background-dark text-white text-center" id={{ sec_context.content_id }}>
+        <div class="container">
+            <div class="row">
+
+                {% for service in sec_context.hotel_service_item.all %}
+                    {% if service.is_active %}
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                                <span class="service-icon mx-auto">
+                                    <i class="{{ service.icon_name }}"></i>
+                                </span>
+                            {% if service.title %}
+                                <h4>
+                                    <strong>{{ service.title }}</strong>
+                                </h4>
+                            {% endif %}
+                            {% if service.content %}
+                                <p class="text-faded mb-0">{{ service.content }}</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+</section>
+

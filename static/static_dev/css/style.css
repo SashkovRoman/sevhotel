@@ -1,0 +1,278 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+.content-section {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+}
+
+.content-section-slim {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.mh-100 {
+    min-height: 100%;
+}
+
+.mh-80 {
+    min-height: 80%;
+}
+
+
+/* backgrounds */
+.background-light {
+    background-color: #AADAFF;
+}
+
+.background-dark {
+    background: #1D809F;
+}
+
+.background-service {
+    background-color: #fff;
+    color: #1D809F;
+}
+
+.carousel-item {
+    height: auto;
+}
+
+.carousel-item-room .img-fluid {
+    width: 100%;
+}
+
+/* homepage masthead carousel */
+.carousel-item-masthead {
+    height: 100vh;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1D809F;
+}
+
+/* homepage masthead carousel content */
+.carousel-item-masthead-content {
+    padding-top: 30vh;
+    color: white;
+}
+
+/* Navigation - Side Menu */
+#sidebar-wrapper {
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    transition: all 0.4s ease 0s;
+    transform: translateX(250px);
+    background: #1D809F;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li.sidebar-nav-item a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    font-size: 1.2rem;
+    background: rgba(52, 58, 64, 0.1);
+    height: 80px;
+    line-height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #fff;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#sidebar-wrapper.active {
+    right: 250px;
+    width: 250px;
+    transition: all 0.4s ease 0s;
+}
+
+.menu-toggle {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    background: rgba(52, 58, 64, 0.5);
+    line-height: 50px;
+    z-index: 999;
+}
+
+.menu-toggle:focus, .menu-toggle:hover {
+    color: #fff;
+}
+
+.menu-toggle:hover {
+    background: #343a40;
+}
+
+/* Navigation - Scroll to top button */
+.scroll-to-top {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    display: none;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    background: rgba(52, 58, 64, 0.5);
+    line-height: 45px;
+}
+
+.scroll-to-top:focus, .scroll-to-top:hover {
+    color: white;
+}
+
+.scroll-to-top:hover {
+    background: #343a40;
+}
+
+.scroll-to-top i {
+    font-weight: 800;
+}
+
+/* Location */
+.location-icon-large {
+    height: 4.2rem;
+    width: 4.2rem;
+    display: block;
+    line-height: 4.2rem;
+    font-size: 2.2rem;
+}
+
+
+/* Service */
+.service-icon {
+    height: 7.2rem;
+    width: 7.2rem;
+    display: block;
+    line-height: 7.2rem;
+    font-size: 4.2rem;
+}
+
+/* Room service */
+.room-service-icon {
+    width: auto;
+    display: inline-block;
+    font-size: 2.2rem;
+    padding: 0.2rem;
+}
+
+.room-service-prompt {
+    width: auto;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+}
+/* Map */
+.map {
+    height: 80vh;
+}
+
+.map iframe {
+    pointer-events: none;
+}
+
+/* Footer */
+
+.footer {
+    background: #1D809F;
+    color: white;
+}
+
+.footer link{
+    margin: 0;
+}
+
+.social-link {
+    height: 4.2rem;
+    width: 4.2rem;
+    font-size: 2.0rem;
+}
+
+/*.links ul li a {*/
+
+/*}*/
+
+/*.links ul li a:hover {*/
+/*    text-decoration: none;*/
+/*    color: #91AFA1;*/
+/*}*/
+
+/*.about-company i {*/
+/*    font-size: 25px;*/
+/*}*/
+
+/*.about-company a {*/
+/*    color: white;*/
+/*    transition: color 0.2s;*/
+/*}*/
+
+/*.about-company a:hover {*/
+/*    color: #4180cb;*/
+/*}*/
+
+/*.location i {*/
+/*    font-size: 18px;*/
+/*}*/
+
+.copyright p {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+    min-width: 8rem;
+}
+
+.image-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 10px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}

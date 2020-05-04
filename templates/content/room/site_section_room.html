@@ -1,0 +1,93 @@
+{% load poll_extras %}
+{% load static %}
+
+<section>
+
+    {% with room=mdl_context.room room_images=mdl_context.room_images %}
+        {% with css='content-section-slim' title=room.category.name|add:' '|add:room.name %}
+            {% include "common/site_block_description.html" with id=sec_context.description_id %}
+        {% endwith %}
+
+        <div class="content-section-slim" id={{ sec_context.content_id }}>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        {% with  carousel_id="carousel_room_"|append_string:room.id %}
+
+                            <div id="{{ carousel_id }}" class="carousel slide" data-ride="carousel">
+
+                                <div class="d-none d-md-block">
+                                    <ol class="carousel-indicators">
+                                        {% for room_image in room_images %}
+                                            <li data-target="#{{ carousel_id }}" {% if forloop.first %}
+                                                class="active" {% endif %}
+                                                data-slide-to="{{ forloop.counter0 }}"></li>
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+
+                                <div class="carousel-inner">
+                                    {% for room_image in room_images %}
+                                        <div class="carousel-item carousel-item-room{% if forloop.first %} active{% endif %}">
+                                            <img class="img-fluid rounded" src="{{ room_image.image.url }}" alt="">
+                                            {% if room_image.image_description %}
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>{{ room_image.image_description }}</h5>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                {% if room_images.count > 1 %}
+                                    <div class="d-none d-md-block">
+                                        <a class="hidden-md-down carousel-control-prev" href="#{{ carousel_id }}"
+                                           role="button"
+                                           data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">'<'</span>
+                                        </a>
+                                        <a class="hidden-md-down carousel-control-next" href="#{{ carousel_id }}"
+                                           role="button"
+                                           data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">'>'</span>
+                                        </a>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        {% endwith %}
+
+                        <div class="col-12 text-left">
+                            {% for service in room.room_services.all %}
+                                <div class="col room-service-icon background-service py-1">
+                                    <div class="room-service-icon">
+                                        <i class="{{ service.icon_name }}" data-placement="top"
+                                           title="{{ service.title }}">
+                                        </i>
+                                    </div>
+                                    {% if service.prompt %}
+                                        <div class="room-service-prompt">
+                                            <p>{{ service.prompt|linebreaks }}</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-12">
+                            <div class="text-justify">
+                                <p>{{ room.description|linebreaks }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    {% endwith %}
+</section>

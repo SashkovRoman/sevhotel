@@ -1,0 +1,41 @@
+{% load poll_extras %}
+
+{% for child in childs|childs_get:parent %}
+
+    <div class="carousel-item {% ifchanged forloop.parentloop.counter %}active{% endifchanged %}">
+        <div class="row">
+            <div class="col-md-8">
+
+                {% with child_image=childs_images|childs_first:child %}
+                    <img class="img-fluid rounded" src="{{ child_image.image.url }}"
+                         alt="{{ child_image.image_description }}">
+                {% endwith %}
+
+                {% if childs|childs_count:parent > 1 %}
+                    <div class="d-none d-md-block">
+                        <a class="hidden-md-down carousel-control-prev"
+                           href="#{{ carousel_id }}" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="hidden-md-down carousel-control-next"
+                           href="#{{ carousel_id }}" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                {% endif %}
+
+            </div>
+
+            <div class="col-md-4">
+                <h3 class="text-center">{{ child.name }}</h3>
+                <p class="">{{ child.short_description|truncatechars:256 }}</p>
+                <a class="btn btn-info" href="{% url url_string child.id %}" target="_blank">
+                    {{ site_common.btn_details_content }}
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+{% endfor %}
+

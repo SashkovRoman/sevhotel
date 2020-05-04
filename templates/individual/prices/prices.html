@@ -1,0 +1,18 @@
+{% extends 'baze.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% with view_model=SiteViewModel.prices content_model=ContentModel.model %}
+
+        {% include 'navigation.html' with navigation_view_model=view_model %}
+
+        {% for section in view_model %}
+            {% with sec_context=section.0 sec_template=section.1 mdl_context=content_model %}
+                {% if sec_context %}{% include sec_template %}{% endif %}
+            {% endwith %}
+        {% endfor %}
+
+    {% endwith %}
+
+{% endblock content %}

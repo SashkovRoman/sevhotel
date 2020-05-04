@@ -1,0 +1,63 @@
+{% load poll_extras %}
+{% load static %}
+
+<section>
+
+    {% with categories=mdl_context.categories periods=mdl_context.periods %}
+        {% with css='content-section-slim' title=sec_context.description_title content=sec_context.description_content %}
+            {% include "common/site_block_description.html" with id=sec_context.description_id %}
+        {% endwith %}
+
+        <div class="container content-section-slim" id={{ sec_context.content_id }}>
+
+            {% if sec_context.content_title_template %}
+                <div class="container content-section-slim text-center pt-0">
+                    <h2>
+                        {% render_context sec_context.content_title_template 'period' periods|childs_first:None %}
+                    </h2>
+                </div>
+            {% endif %}
+
+            {% for category in categories %}
+                {% if periods|childs_count:category.rate > 0 %}
+                    <div class="container text-center">
+                        <div class="row justify-content-center">
+
+                            <div class="col-12">
+                                {% if sec_context.content_title_template %}
+                                    {% render_context sec_context.price_block_title_template 'category' category %}
+                                {% endif %}
+                            </div>
+
+                            <div class="col-lg-12 text-center">
+                                <table class="table table-striped  bg-light">
+                                    <tbody>
+                                    {% for period in periods|childs_get:category.rate %}
+                                        <tr>
+                                            <th scope="row">
+                                                {% if sec_context.period_template %}
+                                                    {% render_context sec_context.period_template 'period' period %}
+                                                {% else %}
+                                                    {{ period.begin_date|date:"j E" }} -
+                                                    {{ period.end_date|date:"j E" }}
+                                                {% endif %}
+                                            </th>
+                                            <td>
+                                                {% if sec_context.price_template %}
+                                                    {% render_context sec_context.price_template 'period' period %}
+                                                {% else %}
+                                                    {{ period.price }}
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endwith %}
+</section>

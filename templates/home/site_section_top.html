@@ -1,0 +1,50 @@
+{% load static %}
+
+<header>
+    <div id="carouselHeaderIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+
+        {% if sec_context.slide_2_is_active or sec_context.slide_3_is_active %}
+            <ol class="carousel-indicators">
+                <li data-target="#carouselHeaderIndicators" data-slide-to="0" class="active"></li>
+                {% if sec_context.slide_2_is_active %}
+                    <li data-target="#carouselHeaderIndicators" data-slide-to="1"></li>
+                {% endif %}
+                {% if sec_context.slide_3_is_active %}
+                    {% if sec_context.slide_2_is_active %}
+                        <li data-target="#carouselHeaderIndicators" data-slide-to="2"></li>
+                    {% else %}
+                        <li data-target="#carouselHeaderIndicators" data-slide-to="1"></li>
+                    {% endif %}
+                {% endif %}
+            </ol>
+        {% endif %}
+
+        <div class="carousel-inner" role="listbox">
+
+            {% with title=sec_context.title %}
+
+                <!-- Slide One -->
+                <div class="carousel-item carousel-item-masthead active"
+                     style="background-image: url({{ sec_context.slide_1_image.url }})">
+                    {% include 'home/items/top_carousel_content_item.html' with content=sec_context.slide_1_content %}
+                </div>
+                <!-- Slide Two -->
+                {% if sec_context.slide_2_is_active %}
+                    <div class="carousel-item carousel-item-masthead"
+                         style="background-image: url({{ sec_context.slide_2_image.url }})">
+                        {% include 'home/items/top_carousel_content_item.html' with content=sec_context.slide_2_content %}
+                    </div>
+                {% endif %}
+                <!-- Slide Three -->
+                {% if sec_context.slide_3_is_active %}
+                    <div class="carousel-item carousel-item-masthead"
+                         style="background-image: url({{ sec_context.slide_3_image.url }})">
+                        {% include 'home/items/top_carousel_content_item.html' with content=sec_context.slide_3_content %}
+                    </div>
+                {% endif %}
+
+            {% endwith %}
+        </div>
+
+    </div>
+</header>

@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+
+{% with site_common=SiteViewModel.common %}
+
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{{ site_common.site_title }}</title>
+        <meta name="keywords" content="{{ site_common.site_meta_keywords }}"/>
+        <meta name="description" content="{{ site_common.site_meta_description }}"/>
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="{% static 'vendor/fontawesome/fontawesome-free/css/all.min.css' %}"
+              type="text/css">
+        <link rel="stylesheet" href="{% static 'vendor/fontawesome/fontawesome-pro/css/all.min.css' %}" type="text/css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body id="page-top">
+
+    {% if messages %}{% include 'common/site_section_messages.html' %}{% endif %}
+    {% block content %}{% endblock %}
+    {% with site_footer=SiteViewModel.footer %}{% include 'footer.html' %}{% endwith %}
+
+    <!-- Scroll to Top Button -->
+    <!-- Scroll to Top Button -->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- bootstrap.bundle.js и bootstrap.bundle.min.js включают в себя Popper, но не jQuery.  -->
+    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static "js/stylish.js" %}"></script>
+    <script src="{% static "js/validations/booking_form.js" %}"></script>
+    <script src="{% static "js/tooltips.js" %}"></script>
+    <script src="{% static "js/scrollto.js" %}"></script>
+
+    {% if messages %}
+        <script src="{% static "js/messages.js" %}"></script>
+    {% endif %}
+
+    </body>
+
+{% endwith %}
+
+</html>

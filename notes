@@ -1,0 +1,5 @@
+EMAIL_HOST = 'smtp.mail.ru' # адрес SMTP-сервера.
+EMAIL_HOST_USER = 'cpsev@mail.ru' # учётная запись для входа на SMTP-сервер.
+EMAIL_HOST_PASSWORD = '**********' # пароль от учётной записи для входа на SMTP-сервер.
+EMAIL_PORT = 2525 # порт SMTP-сервера.
+EMAIL_USE_TLS = True # или _SSL — True, если используется безопасное соединение.

@@ -1,0 +1,41 @@
+<a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+</a>
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="/">
+                {{ site_common.nav_page_homepage }}
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#page-top">
+                {{ site_common.nav_page_top_content }}
+            </a>
+        </li>
+
+        {% for block in navigation_view_model %}
+            {% with nav_context=block.0 %}
+                {% if nav_context %}
+                    {% if nav_context.description_id %}
+                        <li class="sidebar-nav-item">
+                            <a class="js-scroll-trigger" href="#{{ nav_context.description_id }}">
+                                {{ nav_context.description_name }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if nav_context.content_id %}
+                        <li class="sidebar-nav-item">
+                            <a class="js-scroll-trigger" href="#{{ nav_context.content_id }}">
+                                {{ nav_context.content_name }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+
+    </ul>
+</nav>
+
+

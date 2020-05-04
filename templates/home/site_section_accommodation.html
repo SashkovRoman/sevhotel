@@ -1,0 +1,40 @@
+{% load poll_extras %}
+{% load static %}
+
+
+<section>
+
+    {% with title=sec_context.description_title content=sec_context.description_content %}
+        {% include "common/site_block_description.html" with id=sec_context.description_id %}
+    {% endwith %}
+
+    <div class="content-section-slim" id={{ sec_context.content_id }}>
+        <div class="container text-center">
+
+            {% for category in mdl_context.categories %}
+
+                    <div>
+                        {% if sec_context.category_name_template %}
+                            {% render_context sec_context.category_name_template 'category' category %}
+                        {% else %}
+                            <h2>{{ category.name }}</h2>
+                        {% endif %}
+                    </div>
+
+                    {% with  parent=category childs=mdl_context.rooms childs_images=mdl_context.rooms_images %}
+                        {% with  carousel_id="carousel_category_"|append_string:category.id %}
+                            <div class="carousel slide" data-ride="carousel" id="{{ carousel_id }}">
+                                <div class="carousel-inner">
+                                    {% include 'home/items/content_item_carousel_item.html' with url_string='room' %}
+                                </div>
+                                <hr/>
+                            </div>
+                        {% endwith %}
+                    {% endwith %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,56 @@
+{% load poll_extras %}
+{% load static %}
+
+<section>
+
+    {% with conditions=mdl_context.conditions %}
+        {% with css='content-section-slim' title=sec_context.description_title content=sec_context.description_content %}
+            {% include "common/site_block_description.html" with id=sec_context.description_id %}
+        {% endwith %}
+
+        <div class="content-section-slim" id={{ sec_context.content_id }}>
+            <div class="container text-left">
+                {% for condition in conditions %}
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <h5><p>{{ condition.title|linebreaks }}</p></h5>
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{ condition.content|linebreaks }}</p>
+                        </div>
+                    </div>
+                    <hr/>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    {% endwith %}
+</section>
+
+
+{#<section>#}
+{##}
+{#    {% with size='' title=vm_conditions.description_title content=vm_conditions.description_content %}#}
+{#        {% include "common/site_block_description.html" with id=vm_conditions.description_id %}#}
+{#    {% endwith %}#}
+{##}
+{#    <div class="content-section-slim" id={{ vm_conditions.content_id }}>#}
+{##}
+{#        <div class="container">#}
+{##}
+{#            <div class="row justify-content-center m-0 p-0">#}
+{##}
+{#                {% for condition in conditions %}#}
+{#                        <div class="col-md-8 offset-md-2">#}
+{#                            {% with size='-slim' title=condition.title content=condition.content %}#}
+{#                                {% include "common/site_block_condition.html" %}#}
+{#                            {% endwith %}#}
+{#                        </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{##}
+{#    </div>#}
+{#</section>#}
