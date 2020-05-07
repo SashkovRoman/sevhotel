@@ -126,7 +126,7 @@ class SiteSectionPricesViewModel(ViewModelBaze, DescriptionViewModel, ContentVie
     content_title_template = models.TextField(blank=True, null=True, default=None,
                                               help_text='HTML код для форматирования заголовка.')
     price_block_title_template = models.TextField(blank=True, null=True, default=None,
-                                            help_text='HTML код для форматирования заголовка блока цен.')
+                                                  help_text='HTML код для форматирования заголовка блока цен.')
     period_template = models.TextField(blank=True, null=True, default=None,
                                        help_text='HTML код для форматирования периода.')
     price_template = models.TextField(blank=True, null=True, default=None,
