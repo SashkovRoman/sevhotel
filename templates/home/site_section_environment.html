@@ -6,7 +6,7 @@
         {% include "common/site_block_description.html" with id=sec_context.description_id %}
     {% endwith %}
 
-    <div class="content-section-slim" id={{ sec_context.content_id|default:"" }}>
+    <div class="content-section-slim" id="{{ sec_context.content_id|default:"" }}">
         <div class="container text-center">
 
                 {% with parent=None childs=mdl_context.environments childs_images=mdl_context.environments_images %}

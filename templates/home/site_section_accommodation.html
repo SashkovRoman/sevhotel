@@ -8,7 +8,7 @@
         {% include "common/site_block_description.html" with id=sec_context.description_id %}
     {% endwith %}
 
-    <div class="content-section-slim" id={{ sec_context.content_id|default:"" }}>
+    <div class="content-section-slim" id="{{ sec_context.content_id|default:"" }}">
         <div class="container text-center">
 
             {% for category in mdl_context.categories %}
