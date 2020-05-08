@@ -8,7 +8,7 @@
             {% include "common/site_block_description.html" with id=sec_context.description_id %}
         {% endwith %}
 
-        <div class="content-section-slim pt-0" id="{{ sec_context.content_id|default:"" }}">
+        <div class="content-section-slim pt-0" {% if sec_context.content_id %}id="{{ sec_context.content_id }}"{% endif %}>
             <div class="container">
                 <div class="row text-center">
                     {% for environment_image in environment_images %}

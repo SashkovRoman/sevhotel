@@ -8,7 +8,7 @@
             {% include "common/site_block_description.html" with id=sec_context.description_id %}
         {% endwith %}
 
-        <div class="container content-section-slim" id="{{ sec_context.content_id|default:"" }}">
+        <div class="container content-section-slim" {% if sec_context.content_id %}id="{{ sec_context.content_id }}"{% endif %}>
 
             {% if sec_context.content_title_template %}
                 <div class="container content-section-slim text-center pt-0">

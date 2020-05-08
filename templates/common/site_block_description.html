@@ -1,5 +1,5 @@
 {% if title or content %}
-    <div class="content-section bg-light {{ css }} " id="{{ id|default:"" }}">
+    <div class="content-section bg-light {{ css }}" {% if id %}id="{{ id }}"{% endif %}>
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
