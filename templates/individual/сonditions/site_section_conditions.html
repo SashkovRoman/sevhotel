@@ -8,15 +8,15 @@
             {% include "common/site_block_description.html" with id=sec_context.description_id %}
         {% endwith %}
 
-        <div class="content-section-slim" id={{ sec_context.content_id }}>
+        <div class="content-section-slim" id={{ sec_context.content_id|default:"" }}>
             <div class="container mh-100 text-left">
                 {% for condition in conditions %}
                     <div class="row justify-content-center">
                         <div class="col-md-4">
-                            <h5><p>{{ condition.title|linebreaks }}</p></h5>
+                            <h5>{{ condition.title|linebreaks }}</h5>
                         </div>
                         <div class="col-md-8">
-                            <p>{{ condition.content|linebreaks }}</p>
+                            {{ condition.content|linebreaks }}
                         </div>
                     </div>
                     <hr/>

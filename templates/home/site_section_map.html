@@ -4,7 +4,7 @@
         {% include "common/site_block_description.html" with id=sec_context.description_id %}
     {% endwith %}
 
-    <div class="map" id="{{ sec_context.content_id }}">
+    <div class="map" id="{{ sec_context.content_id|default:"" }}">
         {% autoescape off %}
             {{ sec_context.html_code }}
         {% endautoescape %}
