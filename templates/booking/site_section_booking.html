@@ -52,14 +52,14 @@
                             <div class="col-md-6 mb-2">
                                 <label for="validationArrival">{{ site_common.frm_booking_label_arrival }}</label>
                                 <input type="date" class="form-control"
-                                       id="validationArrival" placeholder="Въезд"
+                                       id="validationArrival"
                                        name="{{ form.arrival.name }}"
                                        value="" required/>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="validationDeparture">{{ site_common.frm_booking_label_departure }}</label>
                                 <input type="date" class="form-control"
-                                       id="validationDeparture" placeholder="Выезд"
+                                       id="validationDeparture"
                                        name="{{ form.departure.name }}"
                                        value="" required/>
                             </div>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-md-12 mb-2">
                                 <label for="validationComment">{{ site_common.frm_booking_label_comment }}</label>
-                                <textarea type="text" class="form-control"
+                                <textarea class="form-control"
                                           id="validationComment"
                                           placeholder="{{ site_common.frm_booking_label_comment }}"
                                           name="{{ form.comment.name }}"></textarea>
