@@ -102,7 +102,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static", "static_prod")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
 
-try:
-    from .settings_prod import *
-except:
-    pass
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'namore92@mail.ru'
+EMAIL_HOST_PASSWORD = '27ma05ma'
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = True
+
+# try:
+#     from .settings_prod import *
+# except:
+#     pass

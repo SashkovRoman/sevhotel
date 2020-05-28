@@ -29,10 +29,11 @@ class GuestForm(forms.ModelForm):
             _message = Template(self._confirm.message_template).render(Context(self.cleaned_data))
             _from_email = self._confirm.from_email
             _recipient_list = [s.strip() for s in self._confirm.recipient_list.split(sep=',')]
+            print(_recipient_list)
             _html_message = Template(self._confirm.html_message_template).render(Context(self.cleaned_data))
             try:
-                send_mail(_subject, _message, _from_email, _recipient_list,
-                          html_message=_html_message, fail_silently=False, )
+                send_mail(_subject, _message, _from_email, _recipient_list, html_message=_html_message,
+                          fail_silently=False, )
             except SMTPException as ex:
                 pass
 
